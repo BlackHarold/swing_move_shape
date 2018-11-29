@@ -95,12 +95,4 @@ class MyKey implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 	}
-
-	void move(int key) {
-		switch (key) {
-		case 87:
-			break;
-		}
-	}
-
 }
