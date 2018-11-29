@@ -8,17 +8,10 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 public class HomeWork2 {
 	public static void main(String[] args) {
-//		 MyFrame okno = new MyFrame();
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				MyFrame myFrame = new MyFrame();
-			}
-		});
+		MyFrame myFrame = new MyFrame();
 	}
 }
 
@@ -38,8 +31,8 @@ class MyFrame extends JFrame {
 
 class MyPanel extends JPanel {
 
-	 int x = 5, y = 5;
-	 int width = 50, height = 50;
+	int x = 5, y = 5;
+	int width = 50, height = 50;
 
 	public MyPanel() {
 		setBackground(Color.WHITE);
@@ -52,13 +45,13 @@ class MyPanel extends JPanel {
 		Graphics2D g2d = (Graphics2D) g;
 
 		g2d.setColor(Color.RED);
-		g2d.fillRect(x*2, y*2, width, height);
+		g2d.fillRect(x * 2, y * 2, width, height);
 
 		g2d.setColor(Color.ORANGE);
 		g2d.fillPolygon(new int[] { x, x + (width / 2), x + width }, new int[] { y + width, y, y + width }, 3);
 
 		g2d.setColor(Color.BLUE);
-		g2d.fillOval(x*3, y*3, width, height);
+		g2d.fillOval(x * 3, y * 3, width, height);
 	}
 }
 
@@ -68,7 +61,7 @@ class MyKey implements KeyListener {
 	int key;
 
 	public MyKey(MyPanel panel) {
-		this.panel=panel;
+		this.panel = panel;
 	}
 
 	@Override
@@ -86,7 +79,7 @@ class MyKey implements KeyListener {
 		}
 		if (key == 65) {
 //			moveLeft();
-		panel.x = panel.x - 1;
+			panel.x = panel.x - 1;
 		}
 		if (key == 83) {
 //			moveDown();
