@@ -1,0 +1,135 @@
+package home.blackharold.dz;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import javafx.scene.shape.MoveTo;
+
+//Обязательно нужно окружать свой код комментариями
+//Здесь видно пример строчного комментария,
+//он определеяется установкой двойного слеша в начале строки ( // затем следует комментарий)
+
+public class HomeWork2 {
+//	 запуск любой программы Java с метода main, или точка входа в программу с
+//	 передачей агрументов
+	public static void main(String[] args) {
+//		 MyFrame okno = new MyFrame();
+
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				MyFrame myFrame = new MyFrame();
+			}
+		});
+	}
+}
+
+class MyFrame extends JFrame {
+	/**
+	 * В этом примере используется область комментария любое кличество строк будет
+	 * игнорироваться компилятором как комментарий если этот текст окружен знаками
+	 */
+
+	public MyFrame() {
+//		 лучше добавить этот метод для описания закрытия формы после закрытия окна
+//		 иначе у формы теряется видимость, но работа приложения не прекращается
+		setTitle("Домашнее задание");
+		setBounds(10, 10, 800, 600);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+//		установка положения и размера окна программы
+//		x, y, width, heigh
+//		также есть методы по отдельности: setLocation & setSize
+		MyPanel panel = new MyPanel();
+		setContentPane(panel);
+
+		setVisible(true);
+	}
+}
+
+class MyPanel extends JPanel {
+
+	 int x = 5, y = 5;
+	 int width = 50, height = 50;
+
+	public MyPanel() {
+		setBackground(Color.WHITE);
+		setFocusable(true);
+		addKeyListener(new MyKey(this));
+	}
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+
+		g2d.setColor(Color.RED);
+		g2d.fillRect(x*2, y*2, width, height);
+
+		g2d.setColor(Color.ORANGE);
+		g2d.fillPolygon(new int[] { x, x + (width / 2), x + width }, new int[] { y + width, y, y + width }, 3);
+
+		g2d.setColor(Color.BLUE);
+		g2d.fillOval(x*3, y*3, width, height);
+	}
+}
+
+class MyKey implements KeyListener {
+
+	MyPanel panel;
+	int key;
+
+	public MyKey(MyPanel panel) {
+		this.panel=panel;
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+
+		int key = e.getKeyCode();
+		System.out.println(key);
+		if (key == 87) {
+//			moveUp();
+			panel.y = panel.y - 1;
+		}
+		if (key == 65) {
+//			moveLeft();
+		panel.x = panel.x - 1;
+		}
+		if (key == 83) {
+//			moveDown();
+			panel.y = panel.y + 1;
+		}
+		if (key == 68) {
+//			moveRigth();
+			panel.x = panel.x + 1;
+		}
+		panel.repaint();
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+	}
+
+	void move(int key) {
+		switch (key) {
+		case 87:
+			break;
+		}
+	}
+
+//	Изучайте быстрые клавиши применяемые в вашей IDE
+}
