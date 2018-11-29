@@ -6,25 +6,13 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import javafx.scene.shape.MoveTo;
-
-//Обязательно нужно окружать свой код комментариями
-//Здесь видно пример строчного комментария,
-//он определеяется установкой двойного слеша в начале строки ( // затем следует комментарий)
 
 public class HomeWork2 {
-//	 запуск любой программы Java с метода main, или точка входа в программу с
-//	 передачей агрументов
 	public static void main(String[] args) {
 //		 MyFrame okno = new MyFrame();
-
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -35,21 +23,12 @@ public class HomeWork2 {
 }
 
 class MyFrame extends JFrame {
-	/**
-	 * В этом примере используется область комментария любое кличество строк будет
-	 * игнорироваться компилятором как комментарий если этот текст окружен знаками
-	 */
 
 	public MyFrame() {
-//		 лучше добавить этот метод для описания закрытия формы после закрытия окна
-//		 иначе у формы теряется видимость, но работа приложения не прекращается
-		setTitle("Домашнее задание");
+		setTitle("Р”РѕРјР°С€РЅРµРµ Р·Р°РґР°РЅРёРµ");
 		setBounds(10, 10, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-//		установка положения и размера окна программы
-//		x, y, width, heigh
-//		также есть методы по отдельности: setLocation & setSize
 		MyPanel panel = new MyPanel();
 		setContentPane(panel);
 
@@ -131,5 +110,4 @@ class MyKey implements KeyListener {
 		}
 	}
 
-//	Изучайте быстрые клавиши применяемые в вашей IDE
 }
